@@ -12,13 +12,31 @@ describe('@Injectable and @Inject test', () => {
 
         }
 
-        class Test{
+        @Injectable()
+        class Factory{
+
+        }
+
+        @Component(
+            {template: '<div><div ref="refTest">给力叔</div></div>'}
+        )
+        class Test extends Vue{
+            @Inject(Service)
+            property:any;
+
+            @Inject(Factory)
+            propertyFactory:any;
+        }
+
+        class NormalClassTest{
             @Inject(Service)
             property:any;
         }
         expect(new Test().property instanceof Service).toBeTruthy();
+        expect(new Test().propertyFactory instanceof Factory).toBeTruthy();
         expect(new Test().property).toEqual(new Test().property);
-    }); 
+        expect(new NormalClassTest().property).toEqual(new Test().property);
+    });
 });
 
 describe('@ViewChild test', () => {
