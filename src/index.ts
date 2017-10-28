@@ -62,10 +62,10 @@ export function ViewChild(ref: string): PropertyDecorator {
     }
 }
 
-export function Output(eventKey: string): PropertyDecorator {
+export function Output(): PropertyDecorator {
     return function (target: any, propertyKey: string | symbol): void {
         target[propertyKey] = function(data){
-            this.$emit(eventKey,data);
+            this.$emit(propertyKey,data);
         }
     }
 }

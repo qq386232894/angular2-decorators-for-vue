@@ -67,15 +67,15 @@ describe('@Output test', () => {
                 {template:'<div></div>'}
             )
             class Test extends Vue{
-                @Output("event")
-                outputTest:(data)=>void;
+                @Output()
+                change:(data)=>void;
             }
             
             let component = new Test().$mount();
-            component.$on("event",function(data){
+            component.$on("change",function(data){
                 expect(data).toEqual("nice");
                 done();
             })
-            component.outputTest("nice");
+            component.change("nice");
         });
     });
