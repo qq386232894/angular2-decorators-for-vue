@@ -1,6 +1,6 @@
 {
   "name": "angular2-decorators-for-vue",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "在vue的基础上实现angular2的装饰器，这样就可以使用angular2的姿势玩转VUE了。",
   "author": "给力叔",
   "private": false,
